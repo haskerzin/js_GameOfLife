@@ -78,19 +78,48 @@ let aliveCells = [];
 
 aliveCells.push([200, 200], [220, 200], [240, 200], [220, 220]);
 
-aliveCells = aliveCells.filter(x => x != [200, 200]);
+// // aliveCells = aliveCells.filter(x => x != [200, 200]);
+// console.log(aliveCells.filter(x => x[0]!=200 || x[1]!=200));
+// console.log(aliveCells.filter(x => x != (200, 200)));
 
-console.log(aliveCells);
+// const newvec = [];
+// for(let i=0; i<aliveCells.length; i++){
+//     newvec.push(aliveCells[i]);
+// }
 
-let i = 0;
-while (i < 10) {
-  task(i);
-   i++;
-}
-function task(i) {
-  setTimeout(function() {
-      // Add tasks to do
-  }, 2000 * i);
-}
+// console.log(newvec);
 
-task(1);
+// removeCells = [[200,200], [220, 200]];
+
+// for(let i = 0; i < removeCells.length; i++){
+//     aliveCells = aliveCells.filter(x => x[0] != removeCells[i][0] || x[1] != removeCells[i][1]);
+// };
+
+console.log(aliveCells[0])
+console.log(aliveCells.includes([200, 200], 0))
+
+let checkElement = (array, element) => {
+    for(let i = 0; i < array.length; i++){
+        if(array[i][0] == element[0] && array[i][1] == element[1]){
+            return true;
+        }else{
+            return false;
+        }
+    }
+};
+
+console.log(checkElement(aliveCells, [200, 200]));
+
+let checkElement = (array, element) => {
+    let contains = false;
+    for(let i = 0; i < array.length; i++){
+        if(array[i][0] == element[0] && array[i][1] == element[1]){
+            contains = true;
+        }
+    }
+    return contains;
+};
+
+vector = [[1,2], [3,4], [5,6]];
+
+console.log(checkElement(vector, [5,6]))

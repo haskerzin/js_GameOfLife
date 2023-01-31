@@ -16,6 +16,9 @@ const gridColor = 'white';
 let createRect = (x, y, width, height, color) => {
     brush.fillStyle = color;
     brush.fillRect(x, y, width, height);
+    // brush.lineWidth = 1;
+    // brush.strokeStyle = 'black';
+    // brush.stroke();
 };
 
 let createLine = (x0, y0, x1, y1, color) => {
@@ -128,16 +131,29 @@ let updateCells = () => {
     removeCells = [];
 };
 
-// // Filling the canvas background
-// createRect(0, 0, canvas.width, canvas.height, "green");
-// // Drawing the grid
-// createGrid();
-
 // Defining initial condition
 // aliveCells.push([200, 200], [220, 200], [240, 200], [220, 220]);
-
 // aliveCells.push([200, 200], [240, 200], [280, 200], [240, 220], [240, 240]);
-aliveCells.push([200, 200], [220, 200], [240, 200]);
+
+// Blinker (period 2)
+// aliveCells.push([200, 200], [220, 200], [240, 200]);
+
+// Beacon (period 2)
+// aliveCells.push(    [200, 200], [220, 200], 
+//                     [200, 220], [220, 220],
+                    
+//                     [240, 240], [260, 240],
+//                     [240, 260], [260, 260]);
+
+// Penta-decathlon(period 15)
+aliveCells.push(    [200, 200], [220, 200], [240, 200],
+                    [200, 220], [240, 220],
+                    [200, 240], [220, 240], [240, 240],
+                    [200, 260], [220, 260], [240, 260],
+                    [200, 280], [220, 280], [240, 280],
+                    [200, 300], [220, 300], [240, 300],
+                    [200, 320], [240, 320],
+                    [200, 340], [220, 340], [240, 340])
 
 let drawAliveCells = () => {
     for(let i = 0; i < aliveCells.length; i++){
