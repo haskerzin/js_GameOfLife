@@ -148,15 +148,17 @@ let playGame =  () => {
     createGrid();
     drawAliveCells();
     applyRules();
-    console.log(removeCells);
-    console.log("New alive cells: " + newAliveCells);
+    // console.log(removeCells);
+    // console.log("New alive cells: " + newAliveCells);
     updateCells();
+    console.log("Generation " + generations);
+    generations++;
+    if(aliveCells.length == 0){
+        clearInterval(id);
+    }
 };
 
 let generations = 0;
+let steps = 5
 
-// while(generations < 5){
-//     playGame();
-//     generations++;
-// };
-
+id = setInterval(playGame, 1000);
