@@ -38,13 +38,14 @@ let createGrid = () => {
 
 // Function that checks if a cell is in a list
 let checkElement = (array, element) => {
+    let contains = false;
     for(let i = 0; i < array.length; i++){
         if(array[i][0] == element[0] && array[i][1] == element[1]){
-            return true;
-        }else{
-            return false;
+            contains = true;
+            break;
         }
     }
+    return contains;
 };
 
 let drawCell = (x, y, color) => {
@@ -135,7 +136,8 @@ let updateCells = () => {
 // Defining initial condition
 // aliveCells.push([200, 200], [220, 200], [240, 200], [220, 220]);
 
-aliveCells.push([200, 200], [240, 200], [280, 200], [240, 220], [240, 240]);
+// aliveCells.push([200, 200], [240, 200], [280, 200], [240, 220], [240, 240]);
+aliveCells.push([200, 200], [220, 200], [240, 200]);
 
 let drawAliveCells = () => {
     for(let i = 0; i < aliveCells.length; i++){
@@ -149,7 +151,7 @@ let playGame =  () => {
     drawAliveCells();
     applyRules();
     // console.log(removeCells);
-    // console.log("New alive cells: " + newAliveCells);
+    console.log("New alive cells: " + newAliveCells);
     updateCells();
     console.log("Generation " + generations);
     generations++;
